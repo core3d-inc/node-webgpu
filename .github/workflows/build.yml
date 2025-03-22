@@ -2,6 +2,7 @@ name: Build cross platform
 
 permissions:
   contents: write
+  packages: write
 
 # Controls when the action will run. Triggers the workflow on push
 on: 
@@ -131,6 +132,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
+        scope: '@core3d-inc'
 
     - name: Print env
       run: |
@@ -154,5 +156,5 @@ jobs:
     - name: Publish to NPM 📖
       uses: JS-DevTools/npm-publish@v2
       with:
-        token: ${{ secrets.NPM_TOKEN }}
-
+        token: ${{ secrets.GITHUB_TOKEN }}
+        registry: "https://npm.pkg.github.com"
