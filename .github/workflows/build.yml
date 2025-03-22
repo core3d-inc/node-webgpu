@@ -19,26 +19,26 @@ jobs:
       fail-fast: false
       matrix:
         config: 
+        # - {
+        #     name: "Windows Latest MSVC",
+        #     os: windows-latest,
+        #     artifact: win32-x64,
+        #   }
         - {
-            name: "Windows Latest MSVC",
-            os: windows-latest,
-            artifact: win32-x64,
-          }
-        - {
-            name: "Ubuntu_Latest_GCC",
-            os: ubuntu-latest,
+            name: "Ubuntu_22.04_GCC",
+            os: ubuntu-22.04,
             artifact: linux-x64,
           }
-        - {
-            name: "macOS Latest Clang",
-            os: macos-latest,
-            artifact: darwin-arm64,
-          }
-        - {
-            name: "macOS Intel?",
-            os: macos-13,
-            artifact: darwin-x64,
-          }
+        # - {
+        #     name: "macOS Latest Clang",
+        #     os: macos-latest,
+        #     artifact: darwin-arm64,
+        #   }
+        # - {
+        #     name: "macOS Intel?",
+        #     os: macos-13,
+        #     artifact: darwin-x64,
+        #   }
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
