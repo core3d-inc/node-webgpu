@@ -1,5 +1,5 @@
 {
-  "name": "webgpu",
+  "name": "@core3d-inc/webgpu",
   "version": "0.2.12",
   "description": "WebGPU for node",
   "main": "index.js",

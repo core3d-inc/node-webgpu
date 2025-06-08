@@ -2,6 +2,7 @@ name: Build cross platform
 
 permissions:
   contents: write
+  packages: write
 
 # Controls when the action will run. Triggers the workflow on push
 on: 
@@ -19,14 +20,14 @@ jobs:
       fail-fast: false
       matrix:
         config: 
+        # - {
+        #     name: "Windows Latest MSVC",
+        #     os: windows-latest,
+        #     artifact: win32-x64,
+        #   }
         - {
-            name: "Windows Latest MSVC",
-            os: windows-latest,
-            artifact: win32-x64,
-          }
-        - {
-            name: "Ubuntu_Latest_GCC",
-            os: ubuntu-latest,
+            name: "Ubuntu_22.04_GCC",
+            os: ubuntu-22.04,
             artifact: linux-x64,
           }
         - {
@@ -131,6 +132,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
+        scope: '@core3d-inc'
 
     - name: Print env
       run: |
@@ -154,5 +156,6 @@ jobs:
     - name: Publish to NPM 📖
       uses: JS-DevTools/npm-publish@v2
       with:
-        token: ${{ secrets.NPM_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        registry: "https://npm.pkg.github.com"
 
