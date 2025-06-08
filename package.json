@@ -1,6 +1,6 @@
 {
   "name": "@core3d-inc/webgpu",
-  "version": "0.2.12",
+  "version": "0.2.12-p1",
   "description": "WebGPU for node",
   "main": "index.js",
   "type": "module",
